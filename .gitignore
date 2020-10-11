@@ -1,0 +1,6 @@
+boards.lmf
+build/
+.backups/
+tools/
+list-maker.mk
+list-maker.project
