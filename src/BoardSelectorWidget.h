@@ -7,6 +7,7 @@
 #include <gtkmm-3.0/gtkmm/label.h>
 #include <gtkmm-3.0/gtkmm/listbox.h>
 #include <gtkmm-3.0/gtkmm/button.h>
+#include <gtkmm-3.0/gtkmm/image.h>
 #include <pangomm-1.4/pangomm/fontdescription.h>
 
 
@@ -24,6 +25,10 @@ private:
     std::unique_ptr<Gtk::Button> m_renameButton;
     std::unique_ptr<Gtk::Button> m_colorModifierButton;
     std::unique_ptr<Gtk::Button> m_deleteButton;
+    std::unique_ptr<Gtk::Image> m_createButtonImage;
+    std::unique_ptr<Gtk::Image> m_renameButtonImage;
+    std::unique_ptr<Gtk::Image> m_colorModifierButtonImage;
+    std::unique_ptr<Gtk::Image> m_deleteButtonImage;
 
     std::vector<std::unique_ptr<Gtk::Grid>> m_listBoxRows;
 

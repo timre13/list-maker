@@ -3,6 +3,7 @@
 #include "StringAskerDialog.h"
 #include "YesNoAskerDialog.h"
 #include "AskRGB.h"
+#include "icon_paths.h"
 #include <gtkmm-3.0/gtkmm/messagedialog.h>
 
 
@@ -19,6 +20,11 @@ BoardSelectorWidget::BoardSelectorWidget(boardList_t *boards)
     m_renameButton{std::make_unique<Gtk::Button>()},
     m_colorModifierButton{std::make_unique<Gtk::Button>()},
     m_deleteButton{std::make_unique<Gtk::Button>()},
+    // TODO: On fail: catch exceptions, print error message and set built-in icons
+    m_createButtonImage{std::make_unique<Gtk::Image>(Gdk::Pixbuf::create_from_file(ICON_PATH_CREATE, 16, 16))},
+    m_renameButtonImage{std::make_unique<Gtk::Image>(Gdk::Pixbuf::create_from_file(ICON_PATH_RENAME, 16, 16))},
+    m_colorModifierButtonImage{std::make_unique<Gtk::Image>(Gdk::Pixbuf::create_from_file(ICON_PATH_MCOLOR, 16, 16))},
+    m_deleteButtonImage{std::make_unique<Gtk::Image>(Gdk::Pixbuf::create_from_file(ICON_PATH_DELETE, 16, 16))},
 
     m_boardsPtr{boards}
 {
@@ -35,23 +41,23 @@ BoardSelectorWidget::BoardSelectorWidget(boardList_t *boards)
     // -------------------------------------------------------------------------
 
     m_createButton->set_label("Create");
-    m_createButton->set_image_from_icon_name("document-new");
+    m_createButton->set_image((Gtk::Widget&)*m_createButtonImage);
     m_createButton->set_tooltip_text("Create a new board");
     m_createButton->set_hexpand();
 
     m_renameButton->set_label("Rename");
-    m_renameButton->set_image_from_icon_name("document-edit");
+    m_renameButton->set_image((Gtk::Widget&)*m_renameButtonImage);
     m_renameButton->set_tooltip_text("Rename the selected board");
     m_renameButton->set_hexpand();
 
     m_colorModifierButton->set_label("Modify color");
     // TODO: find a better icon
-    m_colorModifierButton->set_image_from_icon_name("colorimeter-colorhug");
+    m_colorModifierButton->set_image((Gtk::Widget&)*m_colorModifierButtonImage);
     m_colorModifierButton->set_tooltip_text("Modify the color of the selected board");
     m_colorModifierButton->set_hexpand();
 
     m_deleteButton->set_label("Delete");
-    m_deleteButton->set_image_from_icon_name("edit-delete");
+    m_deleteButton->set_image((Gtk::Widget&)*m_deleteButtonImage);
     m_deleteButton->set_tooltip_text("Delete the selected board");
     m_deleteButton->set_hexpand();
 

@@ -46,7 +46,6 @@ private:
     std::unique_ptr<Gtk::Button> m_listCreateButton;
     std::unique_ptr<Gtk::Button> m_listRenameButton;
     std::unique_ptr<Gtk::Button> m_listDeleteButton;
-
     std::unique_ptr<Gtk::Image> m_listCreateButtonImage;
     std::unique_ptr<Gtk::Image> m_listRenameButtonImage;
     std::unique_ptr<Gtk::Image> m_listDeleteButtonImage;
