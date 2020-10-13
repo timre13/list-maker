@@ -18,8 +18,12 @@ class MainWindow final : public Gtk::ApplicationWindow
 private:
     std::unique_ptr<Gtk::Grid> m_grid;
     std::unique_ptr<Gtk::Grid> m_stackSwitcherButtonGrid;
+
     std::unique_ptr<Gtk::Button> m_stackSwitcherButton1;
     std::unique_ptr<Gtk::Button> m_stackSwitcherButton2;
+    std::unique_ptr<Gtk::Image> m_stackSwitcherButton1Image;
+    std::unique_ptr<Gtk::Image> m_stackSwitcherButton2Image;
+
     std::unique_ptr<Gtk::Stack> m_stack;
     std::unique_ptr<BoardSelectorWidget> m_boardSelectorWidget;
     std::unique_ptr<BoardViewerWidget> m_boardViewerWidget;

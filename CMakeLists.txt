@@ -48,6 +48,8 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/img/pencil.svg ${CMAKE_CURRENT_BINARY
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/img/plus.svg ${CMAKE_CURRENT_BINARY_DIR}/img/plus.svg COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/img/tick.svg ${CMAKE_CURRENT_BINARY_DIR}/img/tick.svg COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/img/info.svg ${CMAKE_CURRENT_BINARY_DIR}/img/info.svg COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/img/boards.svg ${CMAKE_CURRENT_BINARY_DIR}/img/boards.svg COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/img/list.svg ${CMAKE_CURRENT_BINARY_DIR}/img/list.svg COPYONLY)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/boards.lmf ${CMAKE_CURRENT_BINARY_DIR}/boards.lmf)
 

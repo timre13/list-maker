@@ -16,6 +16,8 @@ MainWindow::MainWindow(boardList_t *boards)
     m_boardViewerWidget{std::make_unique<BoardViewerWidget>(boards)},
     m_aboutButton{std::make_unique<Gtk::Button>()},
     // TODO: Catch exception
+    m_stackSwitcherButton1Image{std::make_unique<Gtk::Image>(Gdk::Pixbuf::create_from_file(ICON_PATH_BOARDS, 16, 16))},
+    m_stackSwitcherButton2Image{std::make_unique<Gtk::Image>(Gdk::Pixbuf::create_from_file(ICON_PATH_LIST, 16, 16))},
     m_aboutButtonImage{std::make_unique<Gtk::Image>(Gdk::Pixbuf::create_from_file(ICON_PATH_ABOUT, 16, 16))},
     m_boardsPtr{boards}
 {
@@ -32,9 +34,9 @@ MainWindow::MainWindow(boardList_t *boards)
     m_stackSwitcherButtonGrid->set_hexpand();
     m_stackSwitcherButtonGrid->set_tooltip_text("Switch between board selector and board viewer modes");
 
-    m_stackSwitcherButton1->set_image_from_icon_name("emblem-documents");
+    m_stackSwitcherButton1->set_image((Gtk::Widget&)*m_stackSwitcherButton1Image);
     m_stackSwitcherButton1->set_size_request(50, 40);
-    m_stackSwitcherButton2->set_image_from_icon_name("text-x-generic");
+    m_stackSwitcherButton2->set_image((Gtk::Widget&)*m_stackSwitcherButton2Image);
     m_stackSwitcherButton2->set_size_request(50, 40);
 
     m_aboutButton->set_image((Gtk::Widget&)*m_aboutButtonImage);
