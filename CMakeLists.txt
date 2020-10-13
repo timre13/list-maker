@@ -30,6 +30,16 @@ include_directories(
 
 set(CMAKE_CXX_FLAGS "-pthread -g3")
 
+if (EXISTS ${CMAKE_SOURCE_DIR}/.git)
+    execute_process(COMMAND git rev-parse HEAD OUTPUT_VARIABLE GIT_COMMIT OUTPUT_STRIP_TRAILING_WHITESPACE)
+    string(PREPEND GIT_COMMIT \")
+    string(APPEND GIT_COMMIT \")
+    add_compile_definitions(GIT_COMMIT=${GIT_COMMIT})
+    message("Git commit hash: " ${GIT_COMMIT})
+else()
+    message("Not a git repo")
+endif()
+
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/img/icon.svg ${CMAKE_CURRENT_BINARY_DIR}/img/icon.svg COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/img/colors.svg ${CMAKE_CURRENT_BINARY_DIR}/img/colors.svg COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/img/cross.svg ${CMAKE_CURRENT_BINARY_DIR}/img/cross.svg COPYONLY)

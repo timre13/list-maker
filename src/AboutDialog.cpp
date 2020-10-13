@@ -6,8 +6,6 @@
 #include <gdkmm-3.0/gdkmm/pixbuf.h>
 
 
-#define COMP_DATE_TIME " on " __DATE__ " at " __TIME__
-
 AboutDialog::AboutDialog()
 {
     set_program_name("List Maker");
@@ -15,7 +13,11 @@ AboutDialog::AboutDialog()
     set_authors({"timre13"});
     set_license_type(Gtk::License::LICENSE_BSD);
 
-    set_comments("Compiled" COMP_DATE_TIME);
+#ifdef GIT_COMMIT
+    set_comments("Compiled on " __DATE__ " at " __TIME__ " from commit " GIT_COMMIT);
+#else
+    set_comments("Compiled on " __DATE__ " at " __TIME__);
+#endif
 
     try
     {
